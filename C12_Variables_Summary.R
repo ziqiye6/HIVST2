@@ -26,23 +26,27 @@ binary_summary3 <- DataB %>% select(BW.A, BW.B, BW.C, BW.D, BW.E, BW.F, BZ,
                                     CJ, CO.A, CO.B, CO.C, CO.D, CO.E, CO.F, CR,
                                     CS, CY, CZ)
 
-binary_summary1 %>% tbl_summary()
-binary_summary2 %>% tbl_summary()
-binary_summary3 %>% tbl_summary()
+binary_summary1 %>% tbl_summary(statistic = list(all_categorical() ~ "{n} / {N} ({p}%)"))
+binary_summary2 %>% tbl_summary(statistic = list(all_categorical() ~ "{n} / {N} ({p}%)"))
+binary_summary3 %>% tbl_summary(statistic = list(all_categorical() ~ "{n} / {N} ({p}%)"))
 
 factor_summary <- DataB %>% select(F, H, K, P, AH, AL, AM, AN,
                                    AW, AX, AY,  BH, BI, BJ,  BT, BU, BV,
                                    CC, CD, CE, CL, CM, CN,
                                    CT, CU, CW, DA, DB)
 
-factor_summary %>% tbl_summary()
+factor_summary %>% tbl_summary(statistic = list(all_categorical() ~ "{n} / {N} ({p}%)"))
 
 ordinal_summary <- DataB %>% select(I, J, Q, T, V, X, Y, AB, AD, AF,
                                     AG, AI, AO, AR, AS, AZ, BC, BD,
                                     BK, BN, BO, BX, BY, CG, CH,
                                     CP, CQ, CV)
 
-ordinal_summary %>% tbl_summary()
+ordinal_summary %>% tbl_summary(statistic = list(all_categorical() ~ "{n} / {N} ({p}%)"))
+
+cont_summary <- DataB %>% select(A, O, S, U, AA, CX, DD)
+cont_summary %>% tbl_summary(statistic = list(all_continuous() ~ "{mean} ({sd})",
+                             all_categorical() ~ "{n} / {N} ({p}%)"))
 
 boxplot(DataB$A, main="A: deposit supposed to pay")
 boxplot(DataB$O, main="O: In the last 3 months, with how many men have you had anal sexual intercourse?")
@@ -57,4 +61,3 @@ boxplot.stats(DataB$S)
 boxplot.stats(DataB$U)
 boxplot.stats(DataB$AA)
 boxplot.stats(DataB$DD)
-
