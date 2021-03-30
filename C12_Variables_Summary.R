@@ -13,10 +13,6 @@ source("C11_Check_Variable_Class.R")
 str(DataB)
 summary(DataB)
 
-table(DataB$D)
-table(DataB$E)
-table(DataB$G)
-
 binary_summary1 <- DataB %>% select(D, E, G, L, M.A, M.B, M.C, M.D, M.E,
                            M.F, R, W, Z, AC, AE.A, AE.B,
                            AE.C, AE.D, AE.E, AE.F, AE.G,
