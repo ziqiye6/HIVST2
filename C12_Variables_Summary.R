@@ -1,9 +1,9 @@
 ###  C12_Variables_Summary.R
-###  summary of things done in this file
+###  descriptive statistics for baseline 309 data
 ###  author: Ziqi Ye
 ###  date: 2021-3-29
 ###  input: C01_ReadData.R, C11_Check_Variable_Class.R 
-###  output: output_file_name
+###  output: summary table
 
 library(dplyr)
 library(gtsummary)
